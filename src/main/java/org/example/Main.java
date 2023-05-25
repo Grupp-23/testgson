@@ -2,7 +2,6 @@ package org.example;
 
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
-import org.json.simple.parser.ParseException;
 
 public class Main {
     public static void main(String[] args) {
@@ -22,7 +21,7 @@ public class Main {
             System.out.println("Name: " + name);
             System.out.println("Age: " + age);
             System.out.println("City: " + city);
-        } catch (ParseException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
