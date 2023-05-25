@@ -1,11 +1,29 @@
 package org.example;
 
-import com.google.gson.Gson;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello world!");
+        String jsonString = "{\"name\":\"John\", \"age\":30, \"city\":\"New York\"}";
 
-        Gson gson = new Gson();
+        JSONParser parser = new JSONParser();
+
+        try {
+            Object obj = parser.parse(jsonString);
+
+            JSONObject jsonObject = (JSONObject) obj;
+
+            String name = (String) jsonObject.get("name");
+            long age = (long) jsonObject.get("age");
+            String city = (String) jsonObject.get("city");
+
+            System.out.println("Name: " + name);
+            System.out.println("Age: " + age);
+            System.out.println("City: " + city);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
     }
 }
